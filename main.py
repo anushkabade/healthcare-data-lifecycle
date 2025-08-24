@@ -18,24 +18,23 @@ def load_csv(file_name: str) -> pd.DataFrame:
 def main():
     print("\n🚀 Healthcare Data Lifecycle Project\n")
 
-    # Load CSV files (skip if missing)
+    # Load CSV files (only if they exist)
     patients = load_csv("patients.csv")
     doctors = load_csv("doctors.csv")
     appointments = load_csv("appointments.csv")
-    treatments = load_csv("treatments.csv")
+    billing = load_csv("billing.csv")
+    departments = load_csv("departments.csv")
+    treatments = load_csv("treatments.csv")  # won't crash if missing
 
     # Show quick summary
-    if not treatments.empty:
-        print("\n📊 Treatments Data Preview:")
-        print(treatments.head())
-    else:
-        print("\n⚠️ No treatments data found.")
-
     if not patients.empty and not appointments.empty:
         print("\n📊 Patient & Appointment Counts:")
         print(f"Patients: {len(patients)} | Appointments: {len(appointments)}")
 
+    if not billing.empty:
+        print("\n📊 Billing Data Preview:")
+        print(billing.head())
+
 
 if __name__ == "__main__":
     main()
-
