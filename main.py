@@ -1,5 +1,6 @@
 import pandas as pd
 import matplotlib.pyplot as plt
+print("✅ main.py is running...")
 
 # Load CSV files
 patients = pd.read_csv("patients.csv")
@@ -36,3 +37,4 @@ treatments["Description"].value_counts().plot(kind="pie", autopct="%1.1f%%")
 plt.title("Treatment Distribution")
 plt.savefig("treatment_distribution.png")
 plt.show()
+
